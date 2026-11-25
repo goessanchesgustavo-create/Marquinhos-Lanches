@@ -25,16 +25,7 @@
   const itens = $$(".camadas li");
   const raiz = document.documentElement;
   const calmo = raiz.classList.contains("calmo");
-  const botao = document.getElementById("movimento");
-  botao.textContent = calmo ? "Ativar movimento" : "Reduzir movimento";
-  botao.addEventListener("click", () => {
-    try { localStorage.setItem("movimento", calmo ? "1" : "0"); } catch (e) { /* sem armazenamento */ }
-    scrollTo(0, 0);
-    location.reload();
-  });
   const limite = (v) => Math.min(1, Math.max(0, v));
-
-  if (calmo) { cena2.inert = true; return; }
 
   const pequeno = innerWidth <= 760;
   const quadros = new Array(TOTAL);
@@ -72,7 +63,7 @@
   const passo = (agora) => {
     const dt = antes ? Math.min(agora - antes, 400) : 16;
     antes = agora;
-    atual += (alvo - atual) * (1 - Math.exp(-dt / 95)); // suaviza a rolagem
+    atual = calmo ? alvo : atual + (alvo - atual) * (1 - Math.exp(-dt / 95)); // suaviza a rolagem
     if (Math.abs(alvo - atual) < .0008) atual = alvo;
     aplicar();
     if (atual !== alvo) requestAnimationFrame(passo); else { rodando = false; antes = 0; }

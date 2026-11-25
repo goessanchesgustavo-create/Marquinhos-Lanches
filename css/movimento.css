@@ -75,17 +75,12 @@
   .descer { bottom: 80px; }
 }
 
-/* ---------- Modo calmo ---------- */
-.js.calmo .hero { height: auto; }
-.calmo .palco { position: relative; }
-.js.calmo .cena-1 { opacity: 1; translate: none; }
-.calmo .cena-2, .calmo .filme canvas, .calmo .progresso { display: none; }
+/* ---------- Modo calmo (sistema pede menos movimento) ---------- */
+.calmo .filme { scale: 1; }
+.js.calmo .cena { translate: none; }
+.calmo .progresso { display: none; }
 .js.calmo .titulo .linha-titulo, .js.calmo .beneficios li { opacity: 1; clip-path: none; translate: none; }
 .js.calmo .beneficios li svg { scale: 1; rotate: 0deg; }
-.alternar-movimento { display: none; position: absolute; right: 24px; bottom: 104px; z-index: 2; min-height: 44px; padding: 8px 18px; border: 2px solid #fff6; border-radius: 99px; background: #241a17cc; color: #fff; font-weight: 600; font-size: .92rem; cursor: pointer; }
-.alternar-movimento:hover { background: var(--ouro); color: var(--cafe); }
-.prefere-calma .alternar-movimento { display: block; }
-@media (max-width: 760px) { .alternar-movimento { top: calc(var(--topo) + 12px); right: 16px; bottom: auto; } }
 
 /* ---------- Tablet em pé ---------- */
 @media (min-width: 761px) and (max-width: 1100px) and (orientation: portrait) {
@@ -93,5 +88,4 @@
   .palco::after { background: linear-gradient(0deg, #0b0504 36%, #0b050400 54%); }
   .cena { width: 100%; bottom: 150px; top: auto; justify-content: flex-end; }
   .cena-1 .acoes { flex-direction: row; }
-  .alternar-movimento { top: calc(var(--topo) + 14px); bottom: auto; }
 }
