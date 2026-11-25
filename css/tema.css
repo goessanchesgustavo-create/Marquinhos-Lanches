@@ -1,0 +1,33 @@
+/* ---------- Botão claro/escuro ---------- */
+.botao-tema { flex: none; display: grid; place-items: center; width: 46px; height: 46px; padding: 0; border: 0; border-radius: 50%; background: #ffffff1a; color: var(--ouro-2); cursor: pointer; transition: background-color .2s, transform .25s var(--suave); }
+.botao-tema:focus-visible { border-radius: 50%; }
+.botao-tema svg { grid-area: 1/1; width: 22px; fill: currentColor; transition: opacity .25s, rotate .45s var(--suave), scale .45s var(--suave); }
+.botao-tema .sol, [data-tema="escuro"] .botao-tema .lua { opacity: 0; rotate: -90deg; scale: .4; }
+[data-tema="escuro"] .botao-tema .sol { opacity: 1; rotate: 0deg; scale: 1; }
+@media (hover: hover) { .botao-tema:hover { background: #ffffff33; transform: scale(1.08); } }
+.botao-tema:active { transform: scale(.92); }
+@media (min-width: 761px) { .topo-linha > .btn-mini { margin-left: -16px; } }
+@media (max-width: 760px) {
+  .topo-linha { gap: 8px; }
+  .topo-linha > .btn-mini { padding-inline: 14px; }
+}
+@media (max-width: 350px) { .topo-linha > .btn-mini { display: none; } }
+
+/* ---------- Modo escuro ---------- */
+[data-tema="escuro"] { color-scheme: dark; --creme: #1b1310; --creme-2: #35261f; --texto: #f8f1e2; --texto-2: #cdbbad; }
+[data-tema="escuro"] .vermelho { color: #ff6259; }
+[data-tema="escuro"] .beneficios svg { fill: var(--ouro); }
+[data-tema="escuro"] .btn-escuro { background: var(--ouro); color: var(--cafe); }
+[data-tema="escuro"] .contato-painel { background: #2d201a; }
+[data-tema="escuro"] .mapa { background: #3b2b23; }
+[data-tema="escuro"] .rodape { background: #110b09; }
+[data-tema="escuro"] .card-foto { box-shadow: 0 0 0 1px #ffffff1f, 0 14px 30px -16px #000; }
+[data-tema="escuro"] :is(.jeito-foto, .sobre-foto) { box-shadow: 0 0 0 1px #ffffff1a; }
+[data-tema="escuro"] main > :not(.promo) :focus-visible, [data-tema="escuro"] dialog :focus-visible { outline-color: var(--ouro-2); }
+/* sobre o dourado, o texto continua escuro */
+.promo, .card-ouro { color: #2b201c; }
+
+/* Troca em círculo a partir do botão */
+::view-transition-old(root) { animation: none; }
+::view-transition-new(root) { animation: abrir-tema .6s cubic-bezier(.4,0,.2,1); }
+@keyframes abrir-tema { from { clip-path: circle(0 at var(--tx) var(--ty)); } to { clip-path: circle(150vmax at var(--tx) var(--ty)); } }

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marquinhos Lanches | Lanchonete em Registro – SP</title>
+<meta name="description" content="Lanches preparados com capricho em Registro – SP. Peça no Marquinhos Lanches pelo WhatsApp.">
+<meta name="theme-color" content="#241a17">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23241a17'/%3E%3Cpath d='M6 14a10 8 0 0 1 20 0z' fill='%23f6b51e'/%3E%3Crect x='5' y='15' width='22' height='3' rx='1.5' fill='%23d5282d'/%3E%3Cpath d='M6 20h20a5 5 0 0 1-5 5H11a5 5 0 0 1-5-5z' fill='%23f6b51e'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FastFoodRestaurant","name":"Marquinhos Lanches","telephone":"+55 13 99709-4871","hasMap":"https://maps.google.com/?cid=17700254139603749404","address":{"@type":"PostalAddress","streetAddress":"R. Barretos, 147 - Jardim São Paulo","addressLocality":"Registro","addressRegion":"SP","postalCode":"11900-000","addressCountry":"BR"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;600;700&family=Londrina+Solid:wght@400;900&display=swap">
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/movimento.css">
+<link rel="stylesheet" href="css/tema.css">
+<script>
+/* "calmo" = respeita o "reduzir movimento" do sistema, a menos que a pessoa ative pelo botão */
+(function (d) {
+  d.classList.add("js");
+  try { if (localStorage.getItem("tema") === "escuro") d.dataset.tema = "escuro"; } catch (e) {}
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  d.classList.add("prefere-calma");
+  var ligado = false;
+  try { ligado = localStorage.getItem("movimento") === "1"; } catch (e) {}
+  if (!ligado) d.classList.add("calmo");
+})(document.documentElement);
+</script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- Ilustrações provisórias: somem quando as fotos são configuradas em js/config.js -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-burger" viewBox="0 0 200 180">
+    <path d="M18 76C18 34 54 10 100 10s82 24 82 66c0 5-4 8-9 8H27c-5 0-9-3-9-8z" fill="#d98a3a"/>
+    <path d="M30 62c4-25 30-42 62-44-34 8-50 24-54 44z" fill="#eba658"/>
+    <g fill="#fbe6bd"><ellipse cx="70" cy="34" rx="5" ry="3" transform="rotate(-24 70 34)"/><ellipse cx="102" cy="25" rx="5" ry="3"/><ellipse cx="134" cy="36" rx="5" ry="3" transform="rotate(26 134 36)"/><ellipse cx="88" cy="48" rx="5" ry="3" transform="rotate(12 88 48)"/><ellipse cx="119" cy="52" rx="5" ry="3" transform="rotate(-14 119 52)"/><ellipse cx="153" cy="58" rx="5" ry="3" transform="rotate(38 153 58)"/><ellipse cx="54" cy="58" rx="5" ry="3" transform="rotate(-30 54 58)"/></g>
+    <rect x="22" y="80" width="156" height="15" rx="7.5" fill="#c9272b"/>
+    <path d="M12 98q11-11 22 0t22 0 22 0 22 0 22 0 22 0 22 0 22 0v6q-11 14-22 3-11 13-22 2-11 12-22 0-11 12-22 0-11 12-22 0-11 12-22 0-11 11-22-2-11 11-22-3z" fill="#5f9a35"/>
+    <rect x="18" y="110" width="164" height="29" rx="13" fill="#4a281b"/>
+    <path d="M20 108h160l-24 10-14 18-18-18H92l-16 11-16-11z" fill="#f9bf2c"/>
+    <path d="M22 141h156v10c0 12-10 20-22 20H44c-12 0-22-8-22-20z" fill="#d98a3a"/>
+  </symbol>
+  <symbol id="i-batata" viewBox="0 0 200 180">
+    <g fill="#f9cf5b" stroke="#b9770f" stroke-width="2"><rect x="58" y="34" width="15" height="90" rx="3" transform="rotate(-10 65 80)"/><rect x="78" y="16" width="15" height="100" rx="3" transform="rotate(-3 85 70)"/><rect x="98" y="24" width="15" height="100" rx="3"/><rect x="117" y="18" width="15" height="100" rx="3" transform="rotate(6 124 70)"/><rect x="134" y="38" width="15" height="84" rx="3" transform="rotate(13 141 80)"/></g>
+    <path d="M46 78q54 30 108 0l-12 84q-1 8-9 8H67q-8 0-9-8z" fill="#c9272b"/><path d="M76 91l7 79h34l7-79q-24 6-48 0z" fill="#fbf4e6"/>
+  </symbol>
+  <symbol id="i-bebida" viewBox="0 0 200 180">
+    <path d="M108 40l8-30 26-6" fill="none" stroke="#fbf4e6" stroke-width="7" stroke-linecap="round"/>
+    <path d="M60 46h80l-9 116q-1 10-11 10H80q-10 0-11-10z" fill="#c9272b"/><path d="M63 86h74l-4 48H67z" fill="#fbf4e6"/><rect x="52" y="36" width="96" height="16" rx="8" fill="#4a281b"/>
+  </symbol>
+  <symbol id="marca" viewBox="0 0 120 10" preserveAspectRatio="none"><path d="M2 5C38 1 82 1 118 3 82 3 40 5 2 8z" fill="#f6b51e"/><path d="M22 9c30-3 64-3 90-3-28 1-60 1-90 3z" fill="#e8444a"/></symbol>
+</svg>
+
+<header class="topo" id="topo">
+  <div class="progresso" aria-hidden="true"></div>
+  <div class="caixa topo-linha">
+    <a class="logo" href="#inicio" aria-label="Marquinhos Lanches, início"><span>Marquinhos</span><em>Lanches</em><svg aria-hidden="true"><use href="#marca"/></svg></a>
+    <nav id="menu" class="menu" aria-label="Principal">
+      <a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
+    </nav>
+    <button class="botao-tema" id="tema" type="button" aria-label="Ativar modo escuro" title="Ativar modo escuro">
+      <svg class="lua" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.500 14.200A8.800 8.800 0 0 1 9.800 3.500a.6.6 0 0 0-.8-.700 9.600 9.600 0 1 0 12.200 12.200.6.6 0 0 0-.700-.800z"/></svg>
+      <svg class="sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.600"/><path d="M12 1.500v3M12 19.500v3M1.500 12h3M19.500 12h3M4.600 4.600l2.100 2.100M17.300 17.300l2.100 2.100M4.600 19.400l2.100-2.100M17.300 6.700l2.100-2.100" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round"/></svg>
+    </button>
+    <button class="btn btn-ouro btn-mini" type="button" data-pedido>Peça agora</button>
+    <button class="alternar" id="alternar-menu" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="conteudo" tabindex="-1">
+  <!-- Hero com efeito scroll: os quadros do vídeo ficam em imagens/scroll -->
+  <section class="hero" id="inicio" aria-labelledby="t-hero">
+    <div class="palco">
+      <div class="filme">
+        <img src="imagens/scroll/g-01.webp" srcset="imagens/scroll/p-01.webp 854w, imagens/scroll/g-01.webp 1280w" sizes="(max-width: 760px) 854px, 1280px" alt="Hambúrguer com alface, tomate, queijo e carne sobre mesa de madeira" width="1280" height="720" fetchpriority="high">
+        <canvas id="filme" width="1280" height="720" aria-hidden="true"></canvas>
+      </div>
+      <div class="caixa palco-textos">
+        <div class="cena cena-1">
+          <h1 id="t-hero">Sabor de verdade. <span class="ouro quebra">Feito na hora.</span></h1>
+          <p>O lanche caprichado de Registro – SP, direto da chapa para a sua fome.</p>
+          <div class="acoes">
+            <button class="btn btn-vermelho" type="button" data-pedido>Fazer pedido</button>
+            <a class="btn btn-claro" data-mapa href="#contato" target="_blank" rel="noopener">Como chegar</a>
+          </div>
+          <a class="nota" data-nota data-mapa href="#contato" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.100 6.600 7.200.900-5.300 5 1.400 7.100L12 18.100 5.600 21.600 7 14.500l-5.300-5 7.200-.900z"/></svg><b></b> <span></span></a>
+        </div>
+        <div class="cena cena-2">
+          <h2>Camada por camada</h2>
+          <ul class="camadas">
+            <li>Pão com gergelim</li><li>Alface crocante</li><li>Tomate fresco</li><li>Queijo derretido</li><li>Carne suculenta</li>
+          </ul>
+          <button class="btn btn-ouro" type="button" data-pedido>Quero o meu</button>
+        </div>
+      </div>
+      <button class="alternar-movimento" id="movimento" type="button"></button>
+      <a class="descer" href="#destaques" aria-label="Ir para os destaques"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></a>
+    </div>
+  </section>
+
+  <section class="destaques caixa" id="destaques" aria-label="Destaques">
+    <a class="card-foto surge" href="#contato" data-pedido="Olá, Marquinhos Lanches! Quero pedir um hambúrguer.">
+      <div class="moldura" data-foto="destaque"></div>
+      <div class="card-legenda"><h2>Montado no capricho</h2><span class="chamada">Pedir hambúrguer</span></div>
+    </a>
+    <a class="card-ouro surge" href="#contato" data-pedido="Olá, Marquinhos Lanches! Quero pedir uma porção de batata.">
+      <div><h2>Batata para acompanhar?</h2><p>Dourada por fora, macia por dentro.</p><span class="chamada">Pedir batata</span></div>
+      <div class="moldura-mini" data-foto="cartaoDourado" data-icone="i-batata"></div>
+    </a>
+  </section>
+
+  <section class="jeito caixa" aria-labelledby="t-jeito">
+    <div class="jeito-foto surge" data-foto="jeito"></div>
+    <div class="surge">
+      <h2 class="titulo" id="t-jeito">Nosso jeito de fazer: <span class="vermelho quebra">sem pressa no sabor</span></h2>
+      <p class="apoio">Lanche bom começa antes da primeira mordida. Cada pedido recebe atenção do pão ao último toque.</p>
+      <ul class="beneficios">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3C10 3 4 8 4 15c0 2 .5 3.500 1 4.500C8 13 12 10 16 8c-4 4-7 7-9 13 8 1 14-4 13-18z"/></svg><div><h3>Ingredientes selecionados</h3><p>Escolhidos para cada lanche ficar gostoso de verdade.</p></div></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c1 4 6 6 6 12a6 6 0 0 1-12 0c0-3 1.500-4.500 2.500-6 .5 2 1.500 3 2.500 3 1-3-.5-6 1-9z"/></svg><div><h3>Preparo na hora</h3><p>Você pede e a chapa começa a trabalhar.</p></div></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11a9 7 0 0 1 18 0zM2 12.500h20v3H2zM3 17h18a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/></svg><div><h3>Porções bem servidas</h3><p>Para a fome ir embora satisfeita.</p></div></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21C5 16 2 12.500 2 8.500A5 5 0 0 1 12 6a5 5 0 0 1 10 2.500c0 4-3 7.500-10 12.500z"/></svg><div><h3>Sabor caprichado</h3><p>Tempero no ponto e recheio até a borda.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="promo" aria-labelledby="t-promo">
+    <div class="caixa promo-linha">
+      <div class="promo-texto surge">
+        <h2 class="titulo" id="t-promo">Seu próximo lanche <span class="vinho quebra">favorito está aqui.</span></h2>
+        <p class="apoio">Escolha o seu, chame a gente e deixe a chapa com o Marquinhos.</p>
+        <button class="btn btn-vermelho" type="button" data-pedido>Fazer pedido</button>
+      </div>
+      <div class="promo-foto surge" data-foto="promo"></div>
+    </div>
+  </section>
+
+  <section class="sobre caixa" id="sobre" aria-labelledby="t-sobre">
+    <div class="surge">
+      <h2 class="titulo" id="t-sobre">De Registro, <span class="vermelho quebra">com fome de capricho</span></h2>
+      <div class="apoio" id="texto-sobre"></div>
+      <a class="btn btn-escuro" href="#contato">Onde estamos</a>
+    </div>
+    <div class="sobre-foto surge" data-foto="sobre"></div>
+  </section>
+
+  <section class="contato caixa" id="contato" aria-labelledby="t-contato">
+    <div class="contato-painel surge">
+      <div class="contato-dados">
+        <h2 class="titulo" id="t-contato">Bateu a fome?</h2>
+        <dl>
+          <div><dt>Endereço</dt><dd id="endereco"></dd></div>
+          <div><dt>Funcionamento</dt><dd id="horarios"></dd></div>
+          <div><dt>Telefone e WhatsApp</dt><dd id="telefone"></dd></div>
+        </dl>
+        <div class="acoes">
+          <button class="btn btn-ouro" type="button" data-pedido>Abrir WhatsApp</button>
+          <a class="btn btn-claro" data-mapa href="#contato" target="_blank" rel="noopener">Como chegar</a>
+        </div>
+      </div>
+      <div class="mapa" id="mapa">
+        <div class="mapa-vazio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.500a2.500 2.500 0 1 1 0-5 2.500 2.500 0 0 1 0 5z"/></svg><strong>Registro – SP</strong><span>O mapa aparece aqui quando o endereço for informado.</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="caixa rodape-linha">
+    <a class="logo" href="#inicio" aria-label="Marquinhos Lanches, voltar ao início"><span>Marquinhos</span><em>Lanches</em><svg aria-hidden="true"><use href="#marca"/></svg></a>
+    <nav aria-label="Rodapé"><a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a></nav>
+    <div class="rodape-info"><span id="rodape-endereco">Registro – SP</span><span id="rodape-zap"></span><ul id="redes"></ul></div>
+  </div>
+  <p class="caixa direitos">© <span id="ano">2026</span> Marquinhos Lanches. Todos os direitos reservados.</p>
+</footer>
+
+<dialog id="aviso-zap" aria-labelledby="t-aviso">
+  <h2 id="t-aviso">WhatsApp a caminho</h2>
+  <p>O número oficial ainda não foi configurado. Para ativar os pedidos, preencha <code>whatsapp</code> no arquivo <code>js/config.js</code>.</p>
+  <button class="btn btn-vermelho" type="button" data-fechar>Entendi</button>
+</dialog>
+
+<noscript><p class="aviso">Ative o JavaScript para fazer pedidos, ou ligue (13) 99709-4871.</p></noscript>
+<script src="js/config.js"></script>
+<script src="js/site.js"></script>
+<script src="js/movimento.js"></script>
+<script src="js/tema.js"></script>
+</body>
+</html>
