@@ -16,15 +16,13 @@
   $$(".beneficios li").forEach((li, i) => li.style.setProperty("--n", i));
 
   /* ---------- Efeito scroll do hero ---------- */
-  const TOTAL = 50;                       // quadros em imagens/scroll
+  const TOTAL = 75;                       // quadros em imagens/scroll
   const ACENDE = [.24, .36, .48, .60, .70]; // momento em que cada camada acende
   const hero = document.querySelector(".hero");
   const tela = document.getElementById("filme");
   const ctx = tela.getContext("2d");
   const [cena1, cena2] = $$(".cena");
   const itens = $$(".camadas li");
-  const raiz = document.documentElement;
-  const calmo = raiz.classList.contains("calmo");
   const limite = (v) => Math.min(1, Math.max(0, v));
 
   const pequeno = innerWidth <= 760;
@@ -32,7 +30,7 @@
   if (pequeno) { tela.width = 854; tela.height = 480; }
   const caminho = (i) => `imagens/scroll/${pequeno ? "p" : "g"}-${String(i + 1).padStart(2, "0")}.webp`;
 
-  let alvo = 0, atual = -1, desenhado = -1, rodando = false;
+  let alvo = 0, meio = 0, atual = -1, desenhado = -1, rodando = false;
   const maisPerto = (i) => {
     for (let d = 0; d < TOTAL; d++) {
       if (quadros[i - d]) return i - d;
@@ -41,10 +39,23 @@
     return -1;
   };
   const desenhar = () => {
-    const i = maisPerto(Math.round(limite((atual - .06) / .76) * (TOTAL - 1)));
-    if (i < 0 || i === desenhado) return;
-    ctx.drawImage(quadros[i], 0, 0, tela.width, tela.height);
-    desenhado = i;
+    const f = limite((atual - .05) / .8) * (TOTAL - 1);
+    if (Math.abs(f - desenhado) < .01) return;
+    const a = Math.floor(f), b = Math.min(a + 1, TOTAL - 1);
+    if (quadros[a] && quadros[b]) {       // funde dois quadros vizinhos
+      ctx.globalAlpha = 1;
+      ctx.drawImage(quadros[a], 0, 0, tela.width, tela.height);
+      if (f > a) {
+        ctx.globalAlpha = f - a;
+        ctx.drawImage(quadros[b], 0, 0, tela.width, tela.height);
+        ctx.globalAlpha = 1;
+      }
+      desenhado = f;
+      return;
+    }
+    const i = maisPerto(Math.round(f));   // ainda carregando
+    if (i >= 0) ctx.drawImage(quadros[i], 0, 0, tela.width, tela.height);
+    desenhado = -1;
   };
   const aplicar = () => {
     hero.style.setProperty("--p", atual.toFixed(4));
@@ -63,15 +74,18 @@
   const passo = (agora) => {
     const dt = antes ? Math.min(agora - antes, 400) : 16;
     antes = agora;
-    atual = calmo ? alvo : atual + (alvo - atual) * (1 - Math.exp(-dt / 95)); // suaviza a rolagem
-    if (Math.abs(alvo - atual) < .0008) atual = alvo;
+    /* dois estágios: a rolagem arranca e para com suavidade */
+    const k = 1 - Math.exp(-dt / 105);
+    meio += (alvo - meio) * k;
+    atual += (meio - atual) * k;
+    if (Math.abs(alvo - atual) < .0004 && Math.abs(alvo - meio) < .0004) atual = meio = alvo;
     aplicar();
     if (atual !== alvo) requestAnimationFrame(passo); else { rodando = false; antes = 0; }
   };
   const medir = () => {
     const curso = hero.offsetHeight - hero.firstElementChild.offsetHeight;
     alvo = limite(-hero.getBoundingClientRect().top / curso);
-    if (atual < 0) { atual = alvo; aplicar(); }
+    if (atual < 0) { atual = meio = alvo; aplicar(); }
     if (!rodando && atual !== alvo) { rodando = true; requestAnimationFrame(passo); }
   };
   addEventListener("scroll", medir, { passive: true });
@@ -80,14 +94,14 @@
 
   /* Carrega do grosso para o fino: logo há quadros para todo o percurso */
   const ordem = [];
-  (pequeno ? [8, 4, 2] : [8, 4, 2, 1]).forEach((salto) => {
+  [8, 4, 2, 1].forEach((salto) => {
     for (let i = 0; i < TOTAL; i += salto) if (!ordem.includes(i)) ordem.push(i);
   });
   const carregar = () => {
     const i = ordem.shift();
     if (i === undefined) return;
     const img = new Image();
-    img.onload = () => { quadros[i] = img; desenhar(); carregar(); };
+    img.onload = () => { quadros[i] = img; desenhado = -1; desenhar(); carregar(); };
     img.onerror = carregar;
     img.src = caminho(i);
   };

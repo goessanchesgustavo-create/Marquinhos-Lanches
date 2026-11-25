@@ -219,8 +219,8 @@ code { font-size: .92em; background: var(--creme-2); padding: 1px 6px; border-ra
 @media (max-width: 420px) { .contato dl { grid-template-columns: 1fr; gap: 18px; } }
 
 html.calmo { scroll-behavior: auto; }
-.calmo *, .calmo *::before, .calmo *::after { animation: none !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
-.calmo .surge { opacity: 1; translate: none; }
+.calmo .descer svg { animation: none; }
+.js.calmo .surge { translate: none; }
 
 /* ---------- Ajustes das fotos por tela ---------- */
 .moldura-mini.com-prato { height: auto; }

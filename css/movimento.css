@@ -1,9 +1,9 @@
 /* ---------- Hero com efeito scroll ----------
    --p vai de 0 a 1 enquanto a pessoa rola o trecho (definido em js/movimento.js) */
 .hero { --p: 0; position: relative; color: #fff; background: #0b0504; }
-.js .hero { height: 340vh; height: 340svh; }
+.js .hero { height: 430vh; height: 430svh; }
 .palco { position: sticky; top: 0; height: 100vh; height: 100svh; min-height: 600px; overflow: clip; isolation: isolate; }
-.filme { position: absolute; z-index: -1; top: var(--topo); height: calc(100% - var(--topo)); aspect-ratio: 16/9; left: 69%; translate: -50% 0; scale: calc(1 + .04 * var(--p)); transform-origin: 50% 100%;
+.filme { position: absolute; z-index: -1; top: var(--topo); height: calc(100% - var(--topo)); aspect-ratio: 16/9; left: 69%; translate: -50% 0; scale: calc(1 + .06 * var(--p)); will-change: scale; transform-origin: 50% 100%;
   -webkit-mask: linear-gradient(90deg, transparent, #000 26%); mask: linear-gradient(90deg, transparent, #000 26%); }
 .filme > * { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; }
 .palco::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #0b0504 8%, #0b050400 50%), linear-gradient(0deg, #0b0504 0, #0b050400 22%); }
@@ -15,12 +15,12 @@
 .cena-1 > * { animation: sobe .8s var(--suave) backwards; }
 .cena-1 > :nth-child(2) { animation-delay: .1s; }
 .cena-1 > :nth-child(n+3) { animation-delay: .2s; }
-.js .cena-1 { opacity: clamp(0, (.2 - var(--p)) * 12, 1); translate: 0 calc(var(--p) * -260px); }
-.js .cena-2 { opacity: clamp(0, (var(--p) - .2) * 12, 1); translate: 0 calc((1 - clamp(0, (var(--p) - .18) * 8, 1)) * 60px); }
+.js .cena-1 { opacity: clamp(0, (.2 - var(--p)) * 7, 1); translate: 0 calc(var(--p) * -300px); }
+.js .cena-2 { opacity: clamp(0, (var(--p) - .2) * 8, 1); translate: 0 calc((1 - clamp(0, (var(--p) - .2) * 6, 1)) * 56px); }
 .cena[inert] { visibility: hidden; }
 .cena-2 h2 { font: 400 clamp(1.5rem, 2.2vw, 2rem)/1.2 var(--titulo); text-transform: uppercase; color: var(--ouro-2); }
 .camadas { margin: 12px 0 26px; }
-.camadas li { position: relative; font: 400 clamp(2rem, 3.7vw, 3.5rem)/1.24 var(--titulo); text-transform: uppercase; color: #ffffff3d; transition: color .35s, translate .45s var(--suave); }
+.camadas li { position: relative; font: 400 clamp(2rem, 3.7vw, 3.5rem)/1.24 var(--titulo); text-transform: uppercase; color: #ffffff3d; transition: color .7s ease, translate .9s var(--suave); }
 .camadas li.acesa { color: #fff; translate: 12px 0; }
 .camadas li.atual { color: var(--ouro-2); }
 .js .descer { opacity: clamp(0, 1 - var(--p) * 8, 1); transition: visibility .2s; }
@@ -30,14 +30,14 @@
 .progresso { position: absolute; left: 0; bottom: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--vermelho), var(--ouro)); transform: scaleX(0); transform-origin: left; }
 
 /* ---------- Títulos revelados por linha ---------- */
-.js .titulo .linha-titulo { display: block; opacity: 0; clip-path: inset(0 0 100% 0); translate: 0 45%; transition: clip-path .8s var(--suave), translate .8s var(--suave), opacity .3s; }
+.js .titulo .linha-titulo { display: block; opacity: 0; clip-path: inset(0 0 100% 0); translate: 0 45%; transition: clip-path 1.1s var(--suave), translate 1.1s var(--suave), opacity .6s; }
 .js .titulo .linha-titulo + .linha-titulo { transition-delay: .14s; }
 .js .visivel .titulo .linha-titulo, .js .titulo.visivel .linha-titulo { opacity: 1; clip-path: inset(-12% -4% -12% -4%); translate: none; }
 
 /* ---------- Entradas ---------- */
 .js:not(.calmo) .destaques .card-foto:not(.visivel) { translate: -60px 0; }
 .js:not(.calmo) .destaques .card-ouro:not(.visivel) { translate: 60px 0; }
-.js .beneficios li { opacity: 0; translate: 0 22px; transition: opacity .6s, translate .6s var(--suave); transition-delay: calc(.2s + var(--n) * .1s); }
+.js .beneficios li { opacity: 0; translate: 0 22px; transition: opacity .8s, translate .9s var(--suave); transition-delay: calc(.2s + var(--n) * .1s); }
 .js .beneficios li svg { scale: 0; rotate: -40deg; transition: scale .6s cubic-bezier(.3,1.6,.5,1), rotate .6s var(--suave); transition-delay: calc(.3s + var(--n) * .1s); }
 .js .visivel .beneficios li { opacity: 1; translate: none; }
 .js .visivel .beneficios li svg { scale: 1; rotate: 0deg; }
@@ -60,7 +60,7 @@
   .filme { top: auto; bottom: 0; height: min(100% - var(--topo), 72vw); left: 72%; -webkit-mask: linear-gradient(transparent, #000 30%); mask: linear-gradient(transparent, #000 30%); }
 }
 @media (max-width: 760px) {
-  .js .hero { height: 300vh; height: 300svh; }
+  .js .hero { height: 380vh; height: 380svh; }
   .palco { min-height: 680px; }
   .filme { left: 50%; top: var(--topo); height: max(220px, calc((100% - 504px) / .81)); -webkit-mask: linear-gradient(#000 76%, transparent); mask: linear-gradient(#000 76%, transparent); transform-origin: 50% 0; }
   .palco::after { background: linear-gradient(0deg, #0b0504 34%, #0b050400 56%); }
@@ -76,10 +76,13 @@
 }
 
 /* ---------- Modo calmo (sistema pede menos movimento) ---------- */
+/* mantém inércia e esmaecimentos; retira zoom, profundidade e deslizes grandes */
 .calmo .filme { scale: 1; }
 .js.calmo .cena { translate: none; }
 .calmo .progresso { display: none; }
-.js.calmo .titulo .linha-titulo, .js.calmo .beneficios li { opacity: 1; clip-path: none; translate: none; }
+.calmo :is(.jeito-foto, .sobre-foto, .promo-foto, .moldura) > img { animation: none; }
+.js.calmo .titulo .linha-titulo { clip-path: none; translate: none; }
+.js.calmo .beneficios li { translate: none; }
 .js.calmo .beneficios li svg { scale: 1; rotate: 0deg; }
 
 /* ---------- Tablet em pé ---------- */
@@ -89,3 +92,6 @@
   .cena { width: 100%; bottom: 150px; top: auto; justify-content: flex-end; }
   .cena-1 .acoes { flex-direction: row; }
 }
+
+/* Entradas mais longas e macias */
+.js .surge { transition: opacity 1s ease, translate 1.1s var(--suave), transform .35s var(--suave), box-shadow .35s; }
